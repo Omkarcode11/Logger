@@ -24,7 +24,12 @@ public class FileAppender implements Appender {
 
     public String formate(LogMessage logMessage) {
         return String.format(
-                "[%s] [%s] [%s] [%s] [%s]", logMessage.getTimestamp(), logMessage.getLevel(), logMessage.getServiceName(), logMessage.getMessage());
-    }
+            "[%s] [%s] [%s] %s",
+            logMessage.getTimestamp(),
+            logMessage.getLevel(),
+            logMessage.getServiceName(),
+            logMessage.getMessage()
+        );
+     }
 
 }
