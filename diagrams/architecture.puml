@@ -1,0 +1,50 @@
+@startuml
+title Logging LLD - Class and Sequence Diagrams
+
+' Class diagram
+class App {
+}
+class Logger {
+  +log(level, message)
+  +addAppender(Appender)
+  -appenders: List<Appender>
+}
+interface Appender {
+  +append(LogMessage)
+}
+class ConsoleAppender {
+}
+class FileAppender {
+}
+class LogMessage {
+  -timestamp: Date
+  -level: LogLevel
+  -service: ServiceName
+  -message: String
+}
+class LogLevel
+class ServiceName
+
+App --> Logger : uses
+Logger "1" *-- "*" Appender : manages
+Appender <|-- ConsoleAppender
+Appender <|-- FileAppender
+Logger ..> LogMessage : creates
+LogMessage --> LogLevel
+LogMessage --> ServiceName
+
+' Sequence diagram
+
+== Logging Flow ==
+actor User as AppActor
+AppActor -> Logger : log(level, message)
+activate Logger
+Logger -> LogMessage : new(level, service, message)
+Logger -> Appender : append(logMessage)
+activate Appender
+Appender -> ConsoleAppender : write(logLine)
+Appender -> FileAppender : write(logLine)
+deactivate Appender
+deactivate Logger
+
+@enduml

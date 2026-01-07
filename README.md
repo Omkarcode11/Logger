@@ -107,5 +107,10 @@ sequenceDiagram
 **References**
 
 - See the source files in `src/` for implementation details.
+- See the source files in `src/` for implementation details.
 
-If you'd like, I can also generate a PlantUML file, export PNG/SVG diagrams, or add more sequence variations. Which would you prefer next?
+**PlantUML source**
+
+- The PlantUML source for the diagrams is in `diagrams/architecture.puml` (generated alongside this README). You can render it locally with PlantUML or use an online renderer.
+
+If you'd like, I can also export PNG/SVG diagrams locally (requires PlantUML/Graphviz), or push rendered images into `diagrams/` for you. Which would you prefer next?
