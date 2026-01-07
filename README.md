@@ -113,11 +113,3 @@ sequenceDiagram
 
 - The PlantUML source for the diagrams is in `diagrams/architecture.puml` (generated alongside this README). You can render it locally with PlantUML or use an online renderer.
 
-If you'd like, I can also export PNG/SVG diagrams locally (requires PlantUML/Graphviz), or push rendered images into `diagrams/` for you. Which would you prefer next?
-
-
-# render PNG
-java -jar plantuml.jar -tpng diagrams\architecture.puml -o diagrams
-
-# render SVG
-java -jar plantuml.jar -tsvg diagrams\architecture.puml -o diagrams
